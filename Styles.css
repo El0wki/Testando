@@ -1,0 +1,77 @@
+  /* Estilo do header móvel (inicialmente fora da tela) */
+  .header-movel {
+    position: fixed;
+    top: 0;
+    left: -400px; /* Define a posição inicial */
+    width: 300px;
+    height: 100%;
+    background-color: #333;
+    color: white;
+    transition: left 0.4s; /* Transição suave ao mostrar/ocultar */
+    /* Outros estilos */
+}
+
+
+body{
+    background-color: white;
+    transition: background-color 0.6s ease;
+}
+
+.fundo{
+    background-color: white;
+}
+
+/* Botão de seta para abrir e fechar a aba */
+.btn-toggle {
+    position: fixed;
+    top: 20px;
+    left: 10px;
+    font-size: 30px;
+    cursor: pointer;
+    color: rgb(0, 0, 0);
+    z-index: 2000;
+    transition-duration: 0.45s;
+    /
+}
+
+/* Estilo do conteúdo principal da página */
+.content {
+    margin-left: 40px;
+    padding: 20px;
+}
+
+
+.header-movel p {
+    color: #ddd;
+    
+}
+
+.titulo-header-movel{
+    font-weight: normal;
+    text-align: center;
+}
+.texto-header-movel{
+    margin-left: 10%;
+}
+
+.texto-header-movel a{
+    text-decoration: none;
+    color: white;
+    font-size: larger;
+}
+
+.texto-header-movel fieldset{
+   margin-left: -28px;
+}
+
+.body{
+    margin-left: 60px;
+    transition: margin-left 0.1s ease;
+
+}
+
+.titulo{
+    margin-right: 0;
+    margin-left: 60px;
+}
+

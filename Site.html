@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <title>PROJETIN DE MILTON</title>
+    <META charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="styles.css" rel="stylesheet"/>
+ 
+</head>
+
+
+<body id="Fundo">
+
+<!-- Botão para abrir/fechar o header, ícone de seta -->
+<span id="btnToggle" class="btn-toggle">&#9664;</span> <!-- Seta para a esquerda -->
+
+
+
+<!-- Header móvel que será puxado da esquerda -->
+<div id="headerMovel" class="header-movel">
+
+    <button id="ButtonSwitchDarkMode" class="button-switch--dark-mode">Dark Mode</button>
+    <button id="ButtonSwitchLightMode" class="button-switch-light-mode" style="display: none;">Light Mode</button>
+
+        <h1 id="TituloHeaderMovel"class="titulo-header-movel">MENU</h1>
+
+        <div id="TextoHeaderMovel" class="texto-header-movel">
+     <fieldset> <a href="https://www.youtube.com">Consultar</a></fieldset>
+    <fieldset> <a href="https://www.youtube.com">Novo Lote</a> </fieldset>
+    <fieldset> <a href="https://www.youtube.com">Editar Lote</a> </fieldset>
+    </div>
+
+</div>
+
+
+<div id="Body" class="body">
+    <section id="Titulo" class="titulo">
+        <h1>Sitezin de Miltão</h1>
+        <hr>
+    </section>
+    <fieldset class="tabela">Status encomendas:<br>
+        <h3>encomenda - data - hora</h3>
+        <h3>encomenda - data - hora</h3>
+        <h3>encomenda - data - hora</h3>
+        <h3>encomenda - data - hora</h3>
+    </fieldset>
+</div>
+
+
+
+
+
+<!-- Script JavaScript para controlar o movimento do header e a rotação da seta -->
+<script>
+
+function toggleHeader() {
+    var header = document.getElementById("headerMovel");
+    var btn = document.getElementById("btnToggle");
+    var body = document.getElementById("Body");
+
+    // Verifica se o header está escondido (posição inicial definida no CSS)
+    var escondido = header.style.left === "-400px" || getComputedStyle(header).left === "-400px";
+
+    switch (escondido) {
+        case true: // Se o header está escondido
+            header.style.left = "0"; // Puxa o header para dentro da tela
+            btn.innerHTML = "&#9654;"; // Muda a seta para a direita
+            btn.style.left = "260px";
+            body.style.marginLeft = "450px"; // Move o corpo para dar espaço ao header
+            btn.style.color = "white";
+            break;
+
+        case false: // Se o header está visível
+            header.style.left = "-400px"; // Recolhe o header para fora da tela
+            btn.innerHTML = "&#9664;"; // Muda a seta para a esquerda
+            btn.style.left = "10px";
+            btn.style.color = "black";
+            body.style.marginLeft = "60px"; // Restaura a margem original do corpo
+            break;
+    }
+}
+
+// Associa a função toggleHeader ao clique na seta
+document.getElementById("btnToggle").addEventListener("click", toggleHeader);
+
+
+
+    function switchlightdarkmode() {
+    var botaodark = document.getElementById("ButtonSwitchDarkMode");
+    var botaolight = document.getElementById("ButtonSwitchLightMode");
+    var fundo = document.getElementById("Fundo");   
+    
+    // Use getComputedStyle para obter o valor real da cor de fundo
+    var corDeFundoAtual = window.getComputedStyle(fundo).backgroundColor;
+
+    switch(corDeFundoAtual){
+        case "rgb(255, 255, 255)": fundo.style.backgroundColor = "#636363";
+        fundo.style.color = "white";
+        botaodark.style.display = "none";
+        botaolight.style.display = "inline-block";
+        break;
+        default:
+        fundo.style.backgroundColor = "white";
+        fundo.style.color = "black";
+        botaodark.style.display = "inline-block";
+        botaolight.style.display = "none";
+        break;
+    }
+    
+}
+
+
+
+    // Associa a função toggleHeader ao clique na seta
+    document.getElementById("ButtonSwitchDarkMode" ).addEventListener("click", switchlightdarkmode);
+    document.getElementById("ButtonSwitchLightMode" ).addEventListener("click", switchlightdarkmode);
+    document.getElementById("btnToggle").addEventListener("click", toggleHeader);
+
+</script>
+
+
+
+</body>
+
+</html>
